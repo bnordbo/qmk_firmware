@@ -38,29 +38,24 @@ enum planck_keycodes {
 };
 
 enum unicode_names {
-  U_AE_LC,
-  U_OSTR_LC,
-  U_ARNG_LC,
-  U_AE_UC,
-  U_OSTR_UC,
-  U_ARNG_UC,
-  U_EMDASH,
+  U_SMILE,
 };
 
 const uint32_t PROGMEM unicode_map[] = {
-  [U_AE_LC]   = 0x00e6,  // æ
-  [U_OSTR_LC] = 0x00f8,  // ø
-  [U_ARNG_LC] = 0x00e5,  // å
-  [U_AE_UC]   = 0x00c6,  // Æ
-  [U_OSTR_UC] = 0x00d8,  // Ø
-  [U_ARNG_UC] = 0x00c5,  // Å
-  [U_EMDASH]  = 0x2014,  // –
+  [U_SMILE]   = 0x1f642,  // :-)
 };
 
-#define K_AE    XP(U_AE_LC,   U_AE_UC)
-#define K_OSTR  XP(U_OSTR_LC, U_OSTR_UC)
-#define K_ARNG  XP(U_ARNG_LC, U_ARNG_UC)
-#define K_EMDSH X(U_EMDASH)
+/* On the mac, this requires the input mode to be switched to Unicode Hex Input,
+   which breaks the RALT keycodes for special characters below, as well as not
+   working in Emacs. So for now this is just for reference.
+*/
+#define K_SMILE X(U_SMILE)
+
+/* Maps special symbols to corresponding mac RALT keycodes. */
+#define K_AE    RALT(KC_QUOT) // æ
+#define K_OSTR  RALT(KC_O)    // ø
+#define K_ARNG  RALT(KC_A)    // å
+#define K_EMDSH RALT(KC_MINS) // –
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
