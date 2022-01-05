@@ -48,8 +48,8 @@ enum unicode_names {
 };
 
 const uint32_t PROGMEM unicode_map[] = {
-  [U_AE_LC]   = 0x00f8,  // æ
-  [U_OSTR_LC] = 0x00e6,  // ø
+  [U_AE_LC]   = 0x00e6,  // æ
+  [U_OSTR_LC] = 0x00f8,  // ø
   [U_ARNG_LC] = 0x00e5,  // å
   [U_AE_UC]   = 0x00c6,  // Æ
   [U_OSTR_UC] = 0x00d8,  // Ø
