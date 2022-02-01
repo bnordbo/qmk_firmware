@@ -1,3 +1,4 @@
 SRC += muse.c
 UNICODE_ENABLE = no
 UNICODEMAP_ENABLE = no
+TAP_DANCE_ENABLE = yes
