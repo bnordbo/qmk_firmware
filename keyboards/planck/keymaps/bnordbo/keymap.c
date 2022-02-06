@@ -74,9 +74,9 @@ const uint32_t PROGMEM unicode_map[] = {
 
 // Thumb keys with layer switches
 #define HM_BRK LT(_BRK, KC_SPC)
-#define HM_SYM LT(_SYM, KC_TAB)
-#define HM_NAV LT(_NAV, KC_ESC)
-#define HM_NUM LT(_NUM, KC_ENT)
+#define HM_NAV LT(_NAV, KC_TAB)
+#define HM_NUM LT(_NUM, KC_ESC)
+#define HM_SYM LT(_SYM, KC_ENT)
 
 // Shifted keys
 #define SK_TAB S(KC_TAB)
@@ -89,8 +89,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_COLEMAK] = LAYOUT_planck_grid(
     _______, KC_W,    KC_F,    KC_P,    KC_B,    KC_BRID, KC_BRIU, KC_J,    KC_L,    KC_U,    KC_Y,    _______,
     KC_Q,    HM_R,    HM_S,    HM_T,    KC_G,    KC_VOLD, KC_VOLU, KC_M,    HM_N,    HM_E,    HM_I,    KC_SCLN,
-    HM_A,    KC_X,    KC_C,    KC_D,    KC_V,    _______, KC_CAPS, KC_K,    KC_H,    KC_COMM, KC_DOT,  HM_O,
-    KC_Z,    KC_LEFT, KC_RGHT, TGL_NO,  HM_BRK,  HM_SYM,  HM_NAV,  HM_NUM,  KC_UNDS, KC_DOWN, KC_UP,   KC_SLSH
+    HM_A,    KC_X,    KC_C,    KC_D,    KC_V,    _______, _______, KC_K,    KC_H,    KC_COMM, KC_DOT,  HM_O,
+    KC_Z,    KC_LEFT, KC_RGHT, TGL_NO,  HM_BRK,  HM_NAV,  HM_NUM,  HM_SYM,  KC_CAPS, KC_DOWN, KC_UP,   KC_SLSH
+),
+
+[_COLEMAK_RSFT] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), _______,
+    _______, KC_LALT, _______, KC_LCTL, _______, _______, _______, S(KC_M), S(KC_N), S(KC_E), S(KC_I), KC_COLN,
+    KC_LGUI, _______, _______, _______, _______, _______, _______, S(KC_K), S(KC_H), KC_LT,   KC_GT,   S(KC_O),
+    _______, _______, _______, _______, KC_DEL,  _______, _______, KC_UNDS, _______, _______, _______, KC_QUES
 ),
 
 [_COLEMAK_LSFT] = LAYOUT_planck_grid(
@@ -98,13 +105,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     S(KC_Q), S(KC_R), S(KC_S), S(KC_T), S(KC_G), _______, _______, _______, KC_RCTL, _______, KC_LALT, _______,
     S(KC_A), S(KC_X), S(KC_C), S(KC_D), S(KC_V), _______, _______, _______, _______, _______, _______, KC_RGUI,
     S(KC_Z), KC_LEFT, KC_RGHT, KC_UNDS, KC_BSPC, SK_TAB,  _______, _______, _______, _______, _______, _______
-),
-
-[_COLEMAK_RSFT] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______, _______, _______, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), _______,
-    _______, KC_LALT, _______, KC_LCTL, _______, _______, _______, S(KC_M), S(KC_N), S(KC_E), S(KC_I), KC_COLN,
-    KC_LGUI, _______, _______, _______, _______, _______, _______, S(KC_K), S(KC_H), KC_LT,   KC_GT,   HM_O,
-    _______, _______, _______, _______, _______, _______, KC_UNDS, KC_DEL,  KC_MINS, _______, _______, KC_QUES
 ),
 
 [_COLEMAK_NO] = LAYOUT_planck_grid(
@@ -115,22 +115,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_BRK] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______, _______, _______, _______, KC_QUOT, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_QUOT, KC_DQUO, KC_GRV,  _______,
     _______, KC_LALT, KC_LSFT, KC_LCTL, _______, _______, _______, _______, TD_LPRN, KC_RPRN, KC_LCBR, _______,
-    KC_LGUI, _______, _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, KC_GRV,  KC_RCBR,
-    _______, _______, _______, _______, _______, _______, _______, KC_DQUO, _______, _______, _______, _______
-),
-
-[_SYM] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______, _______, _______, _______, KC_DLR,  KC_AT,   KC_PERC, _______,
-    _______, KC_LALT, KC_LSFT, KC_LCTL, _______, _______, _______, KC_CIRC, KC_ASTR, KC_PLUS, KC_MINS, KC_PIPE,
-    KC_LGUI, _______, _______, _______, _______, _______, _______, _______, KC_AMPR, KC_TILD, KC_HASH, KC_EXLM,
-    _______, _______, _______, _______, _______, _______, KC_UNDS, KC_EQL,  _______, _______, _______, KC_BSLS
+    KC_LGUI, _______, _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, _______, KC_RCBR,
+    _______, _______, _______, _______, _______, _______, _______, KC_UNDS, _______, _______, _______, _______
 ),
 
 [_NAV] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, _______, KC_FIND, KC_COPY, _______, _______, _______,
-    _______, KC_LALT, KC_LSFT, KC_LCTL, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   _______,
+    _______, KC_LALT, KC_LSFT, KC_LCTL, _______, _______, _______, KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   _______,
     KC_LGUI, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_RGHT,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_END
 ),
@@ -139,7 +132,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_6,    KC_5,    KC_4,    KC_A,    _______, _______, KC_D,    _______, _______, _______, _______,
     KC_X,    KC_2,    KC_1,    KC_0,    KC_B,    _______, _______, KC_E,    KC_RCTL, KC_RSFT, KC_LALT, _______,
     KC_3,    KC_9,    KC_8,    KC_7,    KC_C,    _______, _______, KC_F,    _______, _______, _______, KC_RGUI,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    _______, _______, _______, _______, KC_DOT,  _______, _______, _______, _______, _______, _______, _______
+),
+
+[_SYM] = LAYOUT_planck_grid(
+    _______, KC_PERC, KC_TILD, KC_DLR,  _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_PIPE, KC_MINS, KC_PLUS, KC_ASTR, KC_CIRC, _______, _______, _______, KC_RCTL, KC_RSFT, KC_LALT, _______,
+    KC_EXLM, KC_HASH, KC_AT,   KC_AMPR, _______, _______, _______, _______, _______, _______, _______, KC_RGUI,
+    KC_BSLS, _______, _______, _______, KC_EQL,  _______, _______, _______, _______, _______, _______, _______
 ),
 
 /* Adjust (Sym + Num)
@@ -163,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _BRK, _NUM, _ADJUST);
+  return update_tri_layer_state(state, _NAV, _NUM, _ADJUST);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -180,14 +180,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #ifdef BACKLIGHT_ENABLE
           backlight_step();
         #endif
-        #ifdef KEYBOARD_planck_rev5
-          writePinLow(E6);
-        #endif
       } else {
         unregister_code(KC_RSFT);
-        #ifdef KEYBOARD_planck_rev5
-          writePinHigh(E6);
-        #endif
       }
       return false;
       break;
