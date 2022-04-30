@@ -26,6 +26,7 @@ enum planck_layers {
   _SYM,
   _NAV,
   _NUM,
+  _FUNC,
   _ADJUST,
 };
 
@@ -59,6 +60,7 @@ const uint32_t PROGMEM unicode_map[] = {
 #define K_EMDSH RALT(KC_MINS) // –
 
 #define TGL_NO TG(_COLEMAK_NO)
+#define TGL_ADJ TG(_ADJUST)
 
 // Left-hand home row mods
 #define HM_A LGUI_T(KC_A)
@@ -136,10 +138,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_SYM] = LAYOUT_planck_grid(
-    _______, KC_PERC, KC_TILD, KC_DLR,  _______, _______, _______, _______, _______, _______, _______, _______,
+    TGL_ADJ, KC_PERC, KC_TILD, KC_DLR,  _______, _______, _______, _______, _______, _______, _______, _______,
     KC_PIPE, KC_MINS, KC_PLUS, KC_ASTR, KC_CIRC, _______, _______, _______, KC_RCTL, KC_RSFT, KC_LALT, _______,
     KC_EXLM, KC_HASH, KC_AT,   KC_AMPR, _______, _______, _______, _______, _______, _______, _______, KC_RGUI,
     KC_BSLS, _______, _______, _______, KC_EQL,  _______, _______, _______, _______, _______, _______, _______
+),
+
+[_FUNC] = LAYOUT_planck_grid(
+    TGL_ADJ, KC_F6,   KC_F5,   KC_F4,   _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_F11,  KC_F2,   KC_F1,   KC_F10,  _______, _______, _______, _______, KC_RCTL, KC_RSFT, KC_LALT, _______,
+    KC_F3,   KC_F9,   KC_F8,   KC_F7,   _______, _______, _______, _______, _______, _______, _______, KC_RGUI,
+    KC_F12,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
 /* Adjust (Sym + Num)
@@ -163,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _NAV, _NUM, _ADJUST);
+  return update_tri_layer_state(state, _NAV, _NUM, _FUNC);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
