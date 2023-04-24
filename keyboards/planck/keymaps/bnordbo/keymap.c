@@ -63,16 +63,16 @@ const uint32_t PROGMEM unicode_map[] = {
 #define TGL_ADJ TG(_ADJUST)
 
 // Left-hand home row mods
-#define HM_A LGUI_T(KC_A)
-#define HM_R LALT_T(KC_R)
+#define HM_A LALT_T(KC_A)
+#define HM_R LGUI_T(KC_R)
 #define HM_S LT(_COLEMAK_RSFT, KC_S)
 #define HM_T LCTL_T(KC_T)
 
 // Right-hand home row mods
 #define HM_N RCTL_T(KC_N)
 #define HM_E LT(_COLEMAK_LSFT, KC_E)
-#define HM_I LALT_T(KC_I)
-#define HM_O RGUI_T(KC_O)
+#define HM_I LGUI_T(KC_I)
+#define HM_O RALT_T(KC_O)
 
 // Thumb keys with layer switches
 #define HM_BRK LT(_BRK, KC_SPC)
@@ -138,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_SYM] = LAYOUT_planck_grid(
-    TGL_ADJ, KC_PERC, KC_TILD, KC_DLR,  _______, _______, _______, _______, _______, _______, _______, _______,
+    TGL_ADJ, KC_PERC, KC_DLR,  KC_TILD,  _______, _______, _______, _______, _______, _______, _______, _______,
     KC_PIPE, KC_MINS, KC_PLUS, KC_ASTR, KC_CIRC, _______, _______, _______, KC_RCTL, KC_RSFT, KC_LALT, _______,
     KC_EXLM, KC_HASH, KC_AT,   KC_AMPR, _______, _______, _______, _______, _______, _______, _______, KC_RGUI,
     KC_BSLS, _______, _______, _______, KC_EQL,  _______, _______, _______, _______, _______, _______, _______
