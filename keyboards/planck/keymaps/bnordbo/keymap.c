@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NAV] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, _______, KC_FIND, KC_COPY, _______, _______, _______,
-    _______, KC_GUI, KC_LSFT, KC_LCTL, _______, _______, _______, KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   _______,
+    _______, KC_LGUI, KC_LSFT, KC_LCTL, _______, _______, _______, KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   _______,
     KC_LALT, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_RGHT,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_END
 ),
